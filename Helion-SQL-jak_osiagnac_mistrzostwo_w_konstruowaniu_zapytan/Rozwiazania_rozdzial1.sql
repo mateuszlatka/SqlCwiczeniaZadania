@@ -351,5 +351,131 @@ OR PostCode = '63-896'
 
 Zadanie 1.8
 
+SELECT Name, ISNULL(Street, 'Ulica nieznana') + ' ' + Number AS Adres
+FROM Company
+
+Zadanie 1.9
+
 SELECT *
 FROM Company
+WHERE CityId NOT IN ('1', '3', '5')
+
+SELECT *
+FROM Company
+WHERE CityId <> '1'
+AND CityId <> '3'
+AND CityId <> '5'
+
+Zadanie 1.10
+
+SELECT *
+FROM Company
+WHERE StartDate IS NULL
+AND Active = '1'
+
+Zadanie 1.11
+
+SELECT *
+FROM Company
+WHERE Name LIKE '[c, p, t]%[o, r]'
+
+Zadanie 1.12
+
+SELECT *
+FROM Company
+WHERE Name LIKE '_o%[^e]'
+
+Zadanie 1.13
+
+SELECT TOP(3) *
+FROM Company
+WHERE StartDate IS NOT NULL
+ORDER BY StartDate ASC
+
+Zadanie 1.14
+
+SELECT Name, EmployeeCount, 1000 - EmployeeCount AS 'Liczba pracowników brakuj¹ca do 1000'
+FROM Company
+WHERE Active = 1
+AND EmployeeCount < 1000
+
+Zadanie 1.15
+
+SELECT Name, AnnualIncome / EmployeeCount AS 'Roczny przychód na pracownika'
+FROM Company
+WHERE Active = 1
+
+Zadanie 1.16
+
+SELECT Name
+FROM Company
+WHERE AnnualIncome / EmployeeCount > 300
+AND Active = 1
+
+Zadanie 1.17
+
+SELECT TOP(1) *
+FROM Company
+ORDER BY AnnualIncome/EmployeeCount
+
+Zadanie 1.18
+
+SELECT *
+FROM Company
+WHERE CityId IN (1, 2)
+AND EmployeeCount NOT BETWEEN 500 AND 1500
+
+Zadanie 1.19
+
+SELECT *
+FROM Company
+WHERE PostCode NOT LIKE '__-___'
+
+Zadanie 1.20
+
+SELECT TOP 10 PERCENT *
+FROM Company
+ORDER BY EmployeeCount 
+
+Zadanie 1.21
+
+SELECT DISTINCT Street
+FROM Company
+
+Zadanie 1.22
+
+SELECT Name, CityId, AnnualIncome, EmployeeCount
+FROM Company
+WHERE CityId IS NOT NULL
+ORDER BY CityId, AnnualIncome DESC, EmployeeCount
+
+Zadanie 1.23
+
+SELECT *
+FROM Company
+WHERE StartDate IS NULL
+OR StartDate >= '2000-01-01'
+
+Zadanie 1.24
+
+SELECT *
+FROM Company
+WHERE EmployeeCount BETWEEN 1000 AND 1500
+
+SELECT *
+FROM Company
+WHERE EmployeeCount >= 1000
+AND EmployeeCount <= 1500
+
+Zadanie 1.25
+
+SELECT *
+FROM Company
+WHERE Active = 1
+AND Name NOT IN ('Casio', 'Yamaha')
+
+SELECT *
+FROM Company
+WHERE Active = 1
+AND Name <> 'Casio'
+AND Name <> 'Yamaha'
